@@ -54,6 +54,7 @@ function EmailList() {
       <div className="emailList_list">
         <EmailRow title='Deyan' subject='About the Rent' description='When are you going to pay ?' time='10pm'/>
         <EmailRow title='Elon Musk' subject='Need more memes' description='Hey, I need a funny meme for Twitter! Can you share me something funny.' />
+        <EmailRow title='Eminem' subject="Lyrics for a new song" description="Hey, dude! i'm thinking about making a new song called 'Godzilla'. Can you write the lyrics for me?" />
         
       </div>
     </div>
