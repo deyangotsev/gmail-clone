@@ -31,7 +31,7 @@ function Sidebar() {
         Compose
       </Button>
 
-      <SidebarOption Icon={Inbox} title="inbox" number={54} selected={true} />
+      <SidebarOption Icon={Inbox} title="Inbox" number={54} selected={true} />
       <SidebarOption Icon={Star} title="Starred" number={54} />
       <SidebarOption Icon={AccessTime} title="Snoozed" number={54} />
       <SidebarOption Icon={LabelImportant} title="Important" number={54} />

@@ -43,7 +43,7 @@ function SendMail() {
         {errors.to && <p className='sendMail_error'>To is Required!</p>}
         <input name='subject' type="text" placeholder='Subject:' {...register('subject', { required: true })} />
         {errors.subject && <p className='sendMail_error'>Subject is Required!</p>}
-        <input name='message' type="text" placeholder='Message:' className='sendMail_message' {...register('message', { required: true })} />
+        <textarea name='message' type="text" placeholder='Message:' className='sendMail_message' {...register('message', { required: true })} />
         {errors.message && <p className='sendMail_error'>Message is Required!</p>}
 
         <div className="sendMail_options">

@@ -1,19 +1,33 @@
-import React from 'react';
-import '../styles/Mail.css';
-import { IconButton } from '@mui/material';
-import { ArrowBack, CheckCircle, Delete, Email, Error, ExitToApp, LabelImportant, MoreVert, MoveToInbox, Print, UnfoldMore, WatchLater } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import "../styles/Mail.css";
+import { IconButton } from "@mui/material";
+import {
+  ArrowBack,
+  CheckCircle,
+  Delete,
+  Email,
+  Error,
+  ExitToApp,
+  LabelImportant,
+  MoreVert,
+  MoveToInbox,
+  Print,
+  UnfoldMore,
+  WatchLater,
+} from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectOpenMail } from "../features/mailSlice";
 
 function Mail() {
-
   const navigate = useNavigate();
-
+  const selectedMail = useSelector(selectOpenMail);
 
   return (
-    <div className='mail'>
+    <div className="mail">
       <div className="mail_tools">
         <div className="mail_toolsLeft">
-          <IconButton onClick={() => navigate('/')}>
+          <IconButton onClick={() => navigate("/")}>
             <ArrowBack />
           </IconButton>
 
@@ -66,18 +80,18 @@ function Mail() {
 
       <div className="mail_body">
         <div className="mail_bodyHeader">
-          <h2>Subject</h2>
-          <LabelImportant className='mail_important'/>
-          <p>Title</p>
-          <p className='mail_time'>11pm</p>
+          <h2>{selectedMail?.subject}</h2>
+          <LabelImportant className="mail_important" />
+          <p>{selectedMail?.title}</p>
+          <p className="mail_time">{selectedMail?.time}</p>
         </div>
 
         <div className="mail_message">
-          <p>Message.</p>
+          <p>{selectedMail?.description}</p>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Mail
+export default Mail;

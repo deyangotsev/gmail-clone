@@ -8,9 +8,20 @@ import { ArrowDropDown } from "@mui/icons-material";
 import AppsIcon from '@mui/icons-material/Apps';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import gmailIcon from '../assets/gmail_icon.png';
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectUser } from "../features/userSlice";
+import { auth } from "./firebase";
 
 
 function Header() {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
+  const signOut = () => {
+    auth.signOut().then(() => dispatch(logout()));
+  };
+
+
   return (
     <div className="header">
       <div className="header_left">
@@ -39,7 +50,7 @@ function Header() {
           <NotificationsIcon />
         </IconButton>
 
-        <Avatar />
+        <Avatar onClick={signOut} src={user?.photoUrl}/>
       </div>
     </div>
   );
